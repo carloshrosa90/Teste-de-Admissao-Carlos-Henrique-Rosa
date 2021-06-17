@@ -209,7 +209,8 @@ end
 GET
 /api/ControllerFornecedor
 
-``Json
+REQUEST
+```Json
 [
   {
     "idFornecedor": 0,
@@ -234,13 +235,15 @@ GET
 POST
 /api/ControllerFornecedor
 
+REQUEST
+
 ``Json
 {
   "idFornecedor": 0,
   "nome": "string"
 }
 
-``
+```
 
 PUT
 /api/ControllerProduto
@@ -259,7 +262,7 @@ PUT
 GET
 /api/ControllerProduto/{id}
 
-Response
+RESPONSE
 
 ```Json
 {
@@ -274,6 +277,16 @@ Response
   "result": "string"
 }
 ```
+
+DELETE
+/api/ControllerProduto/{id}
+
+Response 
+
+Code :200	
+Description:Success
+No links
+
 
 
 
