@@ -66,6 +66,71 @@ PRIMARY KEY CLUSTERED
 
 GO
 ```
+# Procedures
+
+```Sql
+
+USE [master]
+GO
+
+alter procedure [dbo].[usp_Produto] 
+@opcao int = null,
+@idFornecedor int = null,
+@idProduto int = null,
+@nomeFornecedor varchar(50) = null,
+@descricaoProduto varchar(300) = null,
+@precoMinimo as decimal(10,2) = null,
+@precoMaximo as decimal(10,2) = null,
+@preco as decimal(10,2) = null,
+@qtdeProduto int = null
+
+as
+begin
+
+if @opcao = 1 
+begin																																											 
+		select *, 'Ok' as result from produto p 																																 
+		left  join fornecedor f on f.idFornecedor = p.idFornecedor																												 
+		where (@idFornecedor		is null or (@idFornecedor is not null and f.idFornecedor = @idFornecedor))									and								 
+			  (@descricaoProduto	is null or (@descricaoProduto is not null and upper(p.descricao) like '%' + upper( replace(@descricaoProduto,' ','%')) +'%' ))		and		 
+			  (@nomeFornecedor	is null or (@nomeFornecedor is not null and upper(f.nome) like '%' + upper( replace(@nomeFornecedor,' ','%')) +'%' ))		and					 
+			  (@precoMinimo			is null or	(@precoMinimo is not null and @precoMinimo <= p.preco))								and											 
+			  (@precoMaximo			is null	or (@precoMaximo is not null and @precoMaximo >= p.preco))	and																		 
+			  (@idProduto			is null or (@idProduto is not null and p.idProduto = @idProduto))		
+return																																											 
+end																																												 
+
+if (@opcao = 3)
+begin
+		insert into produto values (@descricaoProduto,@preco,@qtdeProduto,@idFornecedor)
+		select *, 'Ok' as result from produto p 																																 
+		left join fornecedor f on f.idFornecedor = p.idFornecedor
+		where p.descricao = @descricaoProduto and p.preco =  @preco and p.idFornecedor = @idFornecedor
+return
+end
+
+if @opcao = 4 
+begin
+		update produto set preco = @preco, descricao = @descricaoProduto, 
+		quantidadeEstoque = @qtdeProduto, idFornecedor = @idFornecedor where idProduto = @idProduto
+		
+		select *,'Produto alterado com sucesso' as Result 
+		from produto p 
+		inner join fornecedor f on f.idFornecedor = p.idFornecedor
+		where idProduto = @idProduto
+
+return
+end
+
+if @opcao = 5
+begin
+	delete produto where idProduto = @idProduto	
+	return
+end
+
+end
+GO
+```
 
 
 
