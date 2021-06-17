@@ -68,6 +68,8 @@ GO
 ```
 # Procedures
 
+ [dbo].[usp_Produto] 
+
 ```Sql
 
 USE [master]
@@ -132,7 +134,70 @@ end
 GO
 ```
 
+[dbo].[usp_Fornecedor]
 
+```SQl
+
+USE [master]
+GO
+ALTER procedure [dbo].[usp_Fornecedor]
+@opcao int = null,
+@idFornecedor int = null,
+@nomeFornecedor as varchar(50) = null
+as
+begin
+
+if @opcao = 1
+begin
+	select * from fornecedor f where ((@idFornecedor is null) or (@idFornecedor is not null and f.idFornecedor = @idFornecedor))  
+end
+
+if @opcao = 3
+begin
+	insert into fornecedor values (@nomeFornecedor)
+end
+
+if @opcao = 4
+begin
+	update fornecedor set nome = @nomeFornecedor where idFornecedor = @idFornecedor
+end
+
+if @opcao = 5
+begin
+
+	if @idFornecedor is null
+	begin
+	select 'Obrigatório informar identificador do Fornecedor.' as retorno
+	return
+	end
+
+	if not exists(select f.idFornecedor from fornecedor f where f.idFornecedor = @idFornecedor)
+	begin
+	select 'Fornecedor não existente.' as retorno
+	return
+	end
+
+
+
+	declare @qtdeproduto int = (select count(p.idProduto) from produto p where p.idFornecedor = @idFornecedor)
+
+	if(@qtdeproduto > 0)
+	begin
+			select 'Fornecedor não pode ser excluído. Possui '+ convert(varchar(max),@qtdeproduto) + ' em estoque.' 
+			return
+	end
+	else
+	begin
+			delete fornecedor where idFornecedor = @idFornecedor
+	end
+
+end
+
+end 
+
+
+
+```
 
 
 
