@@ -199,7 +199,10 @@ end
 
 ```
 
-#Endpoint
+# Endpoint
+
+<h2>ControllerFornecedor</h2>
+
 
 ![Screenshot_60](https://user-images.githubusercontent.com/52809418/122434776-c5b09100-cf6d-11eb-85a9-f1eb870fa1f8.png)
 
@@ -227,6 +230,57 @@ GET
   }
 ]
 ``
+
+POST
+/api/ControllerFornecedor
+
+``Json
+{
+  "idFornecedor": 0,
+  "nome": "string"
+}
+
+``
+
+PUT
+/api/ControllerProduto
+
+``Json
+{
+  "idProduto": 0,
+  "descricao": "string",
+  "preco": 0,
+  "quantidadeEstoque": 0,
+  "idFornecedor": 0,
+  "nomeFornecedor": "string"
+}
+``
+
+GET
+/api/ControllerProduto/{id}
+
+Response
+
+``Json
+{
+  "idProduto": 0,
+  "descricao": "string",
+  "preco": 0,
+  "quantidadeEstoque": 0,
+  "idFornecedor": 0,
+  "nomeFornecedor": "string",
+  "precoMinimo": 0,
+  "precoMaximo": 0,
+  "result": "string"
+}
+``
+
+
+
+
+
+
+
 
 
 
