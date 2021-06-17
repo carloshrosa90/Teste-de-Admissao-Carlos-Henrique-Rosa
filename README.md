@@ -201,10 +201,11 @@ end
 
 # Endpoint
 
-<h2>ControllerFornecedor</h2>
-
-
 ![Screenshot_60](https://user-images.githubusercontent.com/52809418/122434776-c5b09100-cf6d-11eb-85a9-f1eb870fa1f8.png)
+
+
+
+
 
 GET
 /api/ControllerFornecedor
@@ -283,9 +284,155 @@ DELETE
 
 Response 
 
+```Html
+
 Code :200	
 Description:Success
 No links
+
+```
+
+<h2>ControllerProduto</h2>
+
+GET
+/api/ControllerProduto
+
+
+REQUEST
+
+```Json
+{
+  "idProduto": 0,
+  "descricao": "string",
+  "preco": 0,
+  "quantidadeEstoque": 0,
+  "idFornecedor": 0,
+  "nomeFornecedor": "string",
+  "precoMinimo": 0,
+  "precoMaximo": 0,
+}
+
+```
+RESPONSE
+
+```jSON
+[
+  {
+    "idProduto": 0,
+    "descricao": "string",
+    "preco": 0,
+    "quantidadeEstoque": 0,
+    "idFornecedor": 0,
+    "nomeFornecedor": "string",
+    "precoMinimo": 0,
+    "precoMaximo": 0,
+    "result": "string"
+  }
+]
+
+```
+
+POST
+/api/ControllerProduto
+
+REQUEST
+
+```jSON
+
+{
+  "idProduto": 0,
+  "descricao": "string",
+  "preco": 0,
+  "quantidadeEstoque": 0,
+  "idFornecedor": 0,
+  "nomeFornecedor": "string",
+  "precoMinimo": 0,
+  "precoMaximo": 0,
+  "result": "string"
+}
+```
+
+RESPONSE
+
+```JSON
+{
+  "idProduto": 0,
+  "descricao": "string",
+  "preco": 0,
+  "quantidadeEstoque": 0,
+  "idFornecedor": 0,
+  "nomeFornecedor": "string",
+  "precoMinimo": 0,
+  "precoMaximo": 0,
+  "result": "string"
+}
+```
+
+PUT
+/api/ControllerProduto
+
+REQUEST
+
+```jSON
+{
+  "idProduto": 0,
+  "descricao": "string",
+  "preco": 0,
+  "quantidadeEstoque": 0,
+  "idFornecedor": 0,
+  "nomeFornecedor": "string",
+  "precoMinimo": 0,
+  "precoMaximo": 0,
+}
+```
+RESPONSE
+
+```jSON
+{
+  "idProduto": 0,
+  "descricao": "string",
+  "preco": 0,
+  "quantidadeEstoque": 0,
+  "idFornecedor": 0,
+  "nomeFornecedor": "string",
+  "precoMinimo": 0,
+  "precoMaximo": 0,
+  "result": "string"
+}
+```
+
+GET
+/api/ControllerProduto/{id}
+
+RESPONSE
+
+```JSON
+{
+  "idProduto": 0,
+  "descricao": "string",
+  "preco": 0,
+  "quantidadeEstoque": 0,
+  "idFornecedor": 0,
+  "nomeFornecedor": "string",
+  "precoMinimo": 0,
+  "precoMaximo": 0,
+  "result": "string"
+}
+```
+
+
+DELETE
+/api/ControllerProduto/{id}
+
+RESPONSE
+
+```Html
+
+Code :200	
+Description:Success
+No links
+
+```
 
 
 
