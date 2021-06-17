@@ -231,14 +231,14 @@ REQUEST
     ]
   }
 ]
-``
+```
 
 POST
 /api/ControllerFornecedor
 
 REQUEST
 
-``Json
+```Json
 {
   "idFornecedor": 0,
   "nome": "string"
