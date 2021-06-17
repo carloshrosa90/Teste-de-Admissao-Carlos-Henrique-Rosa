@@ -19,3 +19,53 @@ O Supermercado Zézinho precisa de um novo sistema para gerir o seu estoque de p
 4.4 - "connectionStrings": {"defaultConnection": "Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=master;"} <br>
 
 # Tabelas
+
+<h5> [dbo].[produto] </h5>
+
+```Sql
+USE [master]
+GO
+
+CREATE TABLE [dbo].[produto](
+	[idProduto] [int] IDENTITY(1,1) NOT NULL,
+	[descricao] [varchar](300) NOT NULL,
+	[preco] [decimal](10, 2) NOT NULL,
+	[quantidadeEstoque] [int] NOT NULL,
+	[idFornecedor] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idProduto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[produto] ADD  DEFAULT ((1)) FOR [quantidadeEstoque]
+GO
+
+ALTER TABLE [dbo].[produto]  WITH CHECK ADD FOREIGN KEY([idFornecedor])
+REFERENCES [dbo].[fornecedor] ([idFornecedor])
+GO
+
+```
+<h5> [dbo].[fornecedor] </h5>
+```Sql
+USE [master]
+GO
+
+CREATE TABLE [dbo].[fornecedor](
+	[idFornecedor] [int] IDENTITY(1,1) NOT NULL,
+	[nome] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idFornecedor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+```
+
+
+
+
+
