@@ -245,7 +245,7 @@ POST
 PUT
 /api/ControllerProduto
 
-``Json
+```Json
 {
   "idProduto": 0,
   "descricao": "string",
@@ -254,14 +254,14 @@ PUT
   "idFornecedor": 0,
   "nomeFornecedor": "string"
 }
-``
+```
 
 GET
 /api/ControllerProduto/{id}
 
 Response
 
-``Json
+```Json
 {
   "idProduto": 0,
   "descricao": "string",
@@ -273,7 +273,7 @@ Response
   "precoMaximo": 0,
   "result": "string"
 }
-``
+```
 
 
 
