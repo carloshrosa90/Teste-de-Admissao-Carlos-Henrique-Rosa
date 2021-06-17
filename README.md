@@ -48,7 +48,9 @@ REFERENCES [dbo].[fornecedor] ([idFornecedor])
 GO
 
 ```
+
 <h5> [dbo].[fornecedor] </h5>
+
 ```Sql
 USE [master]
 GO
