@@ -199,6 +199,38 @@ end
 
 ```
 
+#Endpoint
+
+![Screenshot_60](https://user-images.githubusercontent.com/52809418/122434776-c5b09100-cf6d-11eb-85a9-f1eb870fa1f8.png)
+
+GET
+/api/ControllerFornecedor
+
+``Json
+[
+  {
+    "idFornecedor": 0,
+    "nome": "string",
+    "produtos": [
+      {
+        "idProduto": 0,
+        "descricao": "string",
+        "preco": 0,
+        "quantidadeEstoque": 0,
+        "idFornecedor": 0,
+        "nomeFornecedor": "string",
+        "precoMinimo": 0,
+        "precoMaximo": 0,
+        "result": "string"
+      }
+    ]
+  }
+]
+``
+
+
+
+
 
 
 
